@@ -5,8 +5,11 @@ execute at @e[type=minecraft:marker,tag=copper_eye_door,tag=marker_setup] unless
 execute at @e[type=minecraft:marker,tag=copper_eye_lantern,tag=marker_setup] unless block ~ ~ ~ target[power=0] run function matcha:abbey/break_copper_eye_lantern
 execute at @e[type=minecraft:marker,tag=copper_eye_grate,tag=marker_setup, tag=!extended] unless block ~ ~ ~ target[power=0] run function matcha:abbey/push_horizontal_copper_eye_grate
 execute at @e[type=minecraft:marker,tag=copper_eye_grate,tag=marker_setup, tag=extended] unless block ~ ~ ~ target[power=0] run function matcha:abbey/pull_horizontal_copper_eye_grate
-execute at @e[type=minecraft:marker,tag=copper_eye_grate_vertical,tag=marker_setup, tag=!extended] unless block ~ ~ ~ target[power=0] run function matcha:abbey/push_vertical_copper_eye_grate
-execute at @e[type=minecraft:marker,tag=copper_eye_grate_vertical,tag=marker_setup, tag=extended] unless block ~ ~ ~ target[power=0] run function matcha:abbey/pull_vertical_copper_eye_grate
+
+# as @e to execute as the marker, then at @s to give it the marker's position as the base for coordinate.
+execute as @e[type=minecraft:marker,tag=copper_eye_grate_vertical,tag=marker_setup, tag=!extended] at @s unless block ~ ~ ~ target[power=0] run function matcha:abbey/push_vertical_copper_eye_grate
+execute as @e[type=minecraft:marker,tag=copper_eye_grate_vertical,tag=marker_setup, tag=extended] at @s unless block ~ ~ ~ target[power=0] run function matcha:abbey/pull_vertical_copper_eye_grate
+
 execute at @e[type=minecraft:marker,tag=copper_eye_grate_vertical_retract,tag=marker_setup] unless block ~ ~ ~ target[power=0] run function matcha:abbey/pull_vertical_retract_copper_eye_grate
 execute at @e[type=minecraft:marker,tag=copper_eye_grate_horizontal_retract,tag=marker_setup] unless block ~ ~ ~ target[power=0] run function matcha:abbey/pull_horizontal_retract_copper_eye_grate
 advancement revoke @a only matcha:mechanics/hit_copper_eye
