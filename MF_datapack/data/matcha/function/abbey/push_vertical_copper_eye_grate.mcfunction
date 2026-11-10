@@ -11,10 +11,10 @@ setblock ^ ^ ^2 target
 particle block{block_state:"minecraft:copper_grate"} ^ ^ ^1 1 .5 1 .01 30 normal
 playsound minecraft:entity.iron_golem.hurt block @a ~ ~-3 ~ 0.4
 
+# remove activated tag because we are pulling in
+execute if block ^ ^ ^2 target run tag @n[type=marker, tag=copper_eye_grate_vertical, tag=marker_setup, distance=..0.01] add activated
+
 # move the marker to the target block
-execute if block ^ ^ ^2 target run tp @s ^ ^ ^2
+execute if block ^ ^ ^2 target run tp @n[type=marker, tag=copper_eye_grate_vertical, tag=marker_setup, distance=..0.01] ^ ^ ^2
 
-# remove extended tag because we are pulling in
-execute if block ^ ^ ^2 target run tag @s add extended
-
-say VERTICAL GRATE PUSHED
+say vertical grate activated

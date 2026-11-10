@@ -8,7 +8,7 @@ playsound minecraft:entity.iron_golem.hurt block @a ~ ~-3 ~ 0.4
 # move the marker to the target block
 execute if block ^ ^ ^2 target run tp @n[type=marker,tag=copper_eye_grate, tag=marker_setup] ^ ^ ^2
 
-# add extended tag
-execute if block ^ ^ ^2 target run tag @n[type=marker, tag=copper_eye_grate, tag=marker_setup] add extended
+# add activated tag
+execute if block ^ ^ ^2 target run tag @n[type=marker, tag=copper_eye_grate, tag=marker_setup] add activated
 
-say horizontal grate extented
+say horizontal grate activated
