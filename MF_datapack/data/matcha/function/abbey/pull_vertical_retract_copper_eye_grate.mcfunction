@@ -6,4 +6,11 @@ setblock ^1 ^ ^-2 copper_grate
 setblock ^-1 ^ ^-2 copper_grate
 particle block{block_state:"minecraft:copper_grate"} ^ ^ ^1 1 .5 1 .01 30 normal
 playsound minecraft:entity.iron_golem.hurt block @a ~ ~-3 ~ 0.4
-execute at @n[type=marker] run function matcha:abbey/kill_copper_eye
+
+# remove activated tag because we are pulling in
+execute if block ^ ^ ^-2 target run tag @n[type=marker, tag=copper_eye_grate_vertical_retract, tag=marker_setup, distance=..0.01] add activated
+
+# move the marker to the target block
+execute if block ^ ^ ^-2 target run tp @n[type=marker, tag=copper_eye_grate_vertical_retract, tag=marker_setup, distance=..0.01] ^ ^ ^-2
+
+say vertical retract grate activated

@@ -13,4 +13,4 @@ execute if block ^ ^ ^-2 target run tag @n[type=marker, tag=copper_eye_grate_ver
 # move the marker to the target block
 execute if block ^ ^ ^-2 target run tp @n[type=marker, tag=copper_eye_grate_vertical, tag=marker_setup, distance=..0.01] ^ ^ ^-2
 
-say vertical grated deactivated
+say vertical grate deactivated
